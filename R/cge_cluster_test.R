@@ -24,7 +24,7 @@ system.time(boot <- foreach(i = 1:100, .packages = "boot") %dopar% { run() })
 ##### CGE cluster
 library(googleComputeEngineR)
 
-vms <- lapply(paste0("cge-node-", 1:5), FUN = googleComputeEngineR::gce_vm, template = "henrikbengtsson/r-base-future")
+vms <- lapply(paste0("gcer-node-", 1:5), FUN = googleComputeEngineR::gce_vm, template = "henrikbengtsson/r-base-future")
 
 vms <- lapply(vms, FUN = gce_ssh_setup, 
               key.pub = file.path("C:/Users/gsposito/.ssh", "google_compute_engine.pub"),
